@@ -39,15 +39,7 @@ const CharList = ({navigation}) => {
   };
 
   const ItemSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 10,
-          width: '100%',
-          backgroundColor: 'rgba(230,230,230,1)',
-        }}
-      />
-    );
+    return <View style={styles.separator} />;
   };
 
   const styles = StyleSheet.create({
@@ -57,6 +49,11 @@ const CharList = ({navigation}) => {
     thumbnail: {
       width: 50,
       height: 50,
+    },
+    separator: {
+      height: 10,
+      width: '100%',
+      backgroundColor: 'rgba(230,230,230,1)',
     },
   });
 

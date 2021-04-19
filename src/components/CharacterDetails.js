@@ -13,22 +13,33 @@ const CharDetails = ({navigation, route}) => {
       width: 300,
       height: 200,
     },
-    text: {
+    key: {
       textTransform: 'capitalize',
+      fontWeight: 'bold',
+      width: '20%',
+    },
+    unknown: {
+      color: 'red',
     },
   });
+
+  const ObjectList = () => {
+    return Object.keys(character).map((item, index) => (
+      <Text key={index}>
+        <Text style={styles.key}>{item}: </Text>
+        {character[item] ? (
+          character[item]
+        ) : (
+          <Text style={styles.unknown}>Unknown</Text>
+        )}
+      </Text>
+    ));
+  };
 
   return (
     <View>
       <Image style={styles.image} source={{uri: imgURL}} />
-      {Object.keys(character).map((item, index) => (
-        <Text>
-          <Text key={index} style={styles.text}>
-            {item}:
-          </Text>
-          <Text> {character[item]}</Text>
-        </Text>
-      ))}
+      <ObjectList />
     </View>
   );
 };
