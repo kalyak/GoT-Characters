@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import {
   FlatList,
   Image,
-  Text,
-  TouchableHighlight,
-  View,
   StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import Characters from '../api/Characters';
 
@@ -14,14 +14,13 @@ const CharList = ({navigation}) => {
   const [count, setCount] = useState(0);
 
   const renderItem = ({item, index}) => {
-    const imgURL = `https://picsum.photos/id/${index}/50/50`;
+    const imgURL = `https://picsum.photos/id/${index}`;
     return (
-      <TouchableHighlight
+      <TouchableOpacity
         onPress={() => {
           setCount(count + 1);
           navigation.navigate('Character Details', {
             character: item,
-            index,
             imgURL,
           });
         }}>
@@ -32,10 +31,10 @@ const CharList = ({navigation}) => {
             {index}:{' '}
             {item.name ? item.name + ' AKA ' + item.aliases : item.aliases}
           </Text>
-          <Image style={styles.thumbnail} source={{uri: imgURL}} />
+          <Image style={styles.thumbnail} source={{uri: `${imgURL}/300/200`}} />
           {/* <Text>{`https://picsum.photos/id/${index}/50`}</Text> */}
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     );
   };
 
