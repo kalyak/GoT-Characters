@@ -13,27 +13,31 @@ const CharList = ({navigation}) => {
   const characters = Characters;
   const [count, setCount] = useState(0);
 
-  const renderItem = ({item, index}) => (
-    <TouchableHighlight
-      onPress={() => {
-        setCount(count + 1);
-        navigation.navigate('Character Details', {item});
-      }}>
-      <View
-      // style={{height: 100, width: '100%', backgroundColor: 'rgba(1,0,0,0.5'}}
-      >
-        <Text>
-          {index}:{' '}
-          {item.name ? item.name + ' AKA ' + item.aliases : item.aliases}
-        </Text>
-        <Image
-          style={styles.thumbnail}
-          source={{uri: `https://picsum.photos/id/${index}/50/50`}}
-        />
-        {/* <Text>{`https://picsum.photos/id/${index}/50`}</Text> */}
-      </View>
-    </TouchableHighlight>
-  );
+  const renderItem = ({item, index}) => {
+    const imgURL = `https://picsum.photos/id/${index}/50/50`;
+    return (
+      <TouchableHighlight
+        onPress={() => {
+          setCount(count + 1);
+          navigation.navigate('Character Details', {
+            character: item,
+            index,
+            imgURL,
+          });
+        }}>
+        <View
+        // style={{height: 100, width: '100%', backgroundColor: 'rgba(1,0,0,0.5'}}
+        >
+          <Text>
+            {index}:{' '}
+            {item.name ? item.name + ' AKA ' + item.aliases : item.aliases}
+          </Text>
+          <Image style={styles.thumbnail} source={{uri: imgURL}} />
+          {/* <Text>{`https://picsum.photos/id/${index}/50`}</Text> */}
+        </View>
+      </TouchableHighlight>
+    );
+  };
 
   const ItemSeparator = () => {
     return (
@@ -41,7 +45,7 @@ const CharList = ({navigation}) => {
         style={{
           height: 10,
           width: '100%',
-          backgroundColor: 'rgba(1,0,0,0.5)',
+          backgroundColor: 'rgba(230,230,230,1)',
         }}
       />
     );
