@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
+import DetailTable from './DetailTable';
 
 const CharDetails = ({navigation, route}) => {
   const character = route.params.character;
@@ -39,7 +40,8 @@ const CharDetails = ({navigation, route}) => {
   return (
     <View>
       <Image style={styles.image} source={{uri: imgURL}} />
-      <ObjectList />
+      {/* <ObjectList /> */}
+      <DetailTable character={character} />
     </View>
   );
 };

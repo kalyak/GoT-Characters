@@ -12,6 +12,7 @@ target 'GoTChars' do
     :hermes_enabled => false
   )
 
+
   target 'GoTCharsTests' do
     inherit! :complete
     # Pods for testing
