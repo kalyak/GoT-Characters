@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
 import DetailTable from './DetailTable';
 
 const CharDetails = ({navigation, route}) => {
@@ -9,38 +9,17 @@ const CharDetails = ({navigation, route}) => {
   const styles = StyleSheet.create({
     container: {
       padding: 20,
+      justifyContent: 'center',
     },
     image: {
       width: 300,
       height: 200,
     },
-    key: {
-      textTransform: 'capitalize',
-      fontWeight: 'bold',
-      width: '20%',
-    },
-    unknown: {
-      color: 'red',
-    },
   });
-
-  const ObjectList = () => {
-    return Object.keys(character).map((item, index) => (
-      <Text key={index}>
-        <Text style={styles.key}>{item}: </Text>
-        {character[item] ? (
-          character[item]
-        ) : (
-          <Text style={styles.unknown}>Unknown</Text>
-        )}
-      </Text>
-    ));
-  };
 
   return (
     <View>
       <Image style={styles.image} source={{uri: imgURL}} />
-      {/* <ObjectList /> */}
       <DetailTable character={character} />
     </View>
   );

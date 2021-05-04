@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const GetCharacters = setCharacters => {
+const GetCharacters = () => {
   return axios
     .get('https://www.anapioficeandfire.com/api/characters')
     .then(response => {
-      setCharacters(response.data[0].url);
+      return response.data;
     })
     .catch(error => {
       error.data;
