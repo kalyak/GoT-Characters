@@ -18,7 +18,7 @@ import axios from 'axios';
 
 export const GET_CHARS = 'GET_CHARS';
 
-export const GetCharacters = () => {
+export const getCharacters = () => {
   try {
     return async dispatch => {
       const res = await axios.get(

@@ -19,7 +19,7 @@ const initialState = {
 const charReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CHARS:
-      return {...state, movies: action.payload};
+      return {...state, characters: action.payload};
     default:
       return state;
   }

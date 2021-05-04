@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import {
   FlatList,
   Image,
@@ -7,18 +7,29 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Characters from '../api/Characters';
+import {useDispatch, useSelector} from 'react-redux';
+import {getCharacters} from '../redux/actions';
+// import Characters from '../api/Characters';
 
 const CharList = ({navigation}) => {
-  const characters = Characters;
-  const [count, setCount] = useState(0);
+  // const characters = Characters;
+  // const [count, setCount] = useState(0);
+
+  const {characters} = useSelector(state => state.charReducer);
+  const dispatch = useDispatch();
+  const fetchChars = () => dispatch(getCharacters());
+
+  useEffect(() => {
+    fetchChars();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const renderItem = ({item, index}) => {
     const imgURL = `https://picsum.photos/id/${index}`;
     return (
       <TouchableOpacity
         onPress={() => {
-          setCount(count + 1);
+          // setCount(count + 1);
           navigation.navigate('Character Details', {
             character: item,
             imgURL,
@@ -57,15 +68,21 @@ const CharList = ({navigation}) => {
     },
   });
 
+  // const count = []
   return (
     <View style={styles.container}>
+      {/* {characters.length === 0 ? (
+        'Loading'
+      ) : ( */}
       <FlatList
         data={characters}
         renderItem={renderItem}
         keyExtractor={character => character.url}
         ItemSeparatorComponent={ItemSeparator}
       />
-      <Text>Count: {count}</Text>
+      {/* )} */}
+      {/* <Text>Count: {count}</Text> */}
+      <Text>Characters: {characters.length}</Text>
     </View>
   );
 };
