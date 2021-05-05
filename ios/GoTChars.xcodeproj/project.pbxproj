@@ -13,6 +13,8 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3CCBA6EF85979FE807DEC4E4 /* libPods-GoTChars.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5DE0363F22274EE7AB770E /* libPods-GoTChars.a */; };
+		3F31E48B2642A7D6005E5631 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F31E48A2642A7D6005E5631 /* MaterialIcons.ttf */; };
+		3F31E48C2642A7D6005E5631 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F31E48A2642A7D6005E5631 /* MaterialIcons.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = GoTChars/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GoTChars/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = GoTChars/main.m; sourceTree = "<group>"; };
+		3F31E48A2642A7D6005E5631 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		4DD5325710D9DCAA9C0853DD /* Pods-GoTChars-GoTCharsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoTChars-GoTCharsTests.debug.xcconfig"; path = "Target Support Files/Pods-GoTChars-GoTCharsTests/Pods-GoTChars-GoTCharsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5ED81A85E0251C7F8DA82DCB /* Pods-GoTChars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoTChars.debug.xcconfig"; path = "Target Support Files/Pods-GoTChars/Pods-GoTChars.debug.xcconfig"; sourceTree = "<group>"; };
 		6389ECE9782A7C318681C681 /* Pods-GoTChars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoTChars.release.xcconfig"; path = "Target Support Files/Pods-GoTChars/Pods-GoTChars.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,13 +94,13 @@
 				4DD5325710D9DCAA9C0853DD /* Pods-GoTChars-GoTCharsTests.debug.xcconfig */,
 				7C3B2F55A639D8DE0C340BB3 /* Pods-GoTChars-GoTCharsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		13B07FAE1A68108700A75B9A /* GoTChars */ = {
 			isa = PBXGroup;
 			children = (
+				3F31E4892642A4A3005E5631 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -116,6 +119,14 @@
 				DAAF64791745EA82503DA824 /* libPods-GoTChars-GoTCharsTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F31E4892642A4A3005E5631 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3F31E48A2642A7D6005E5631 /* MaterialIcons.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -155,7 +166,6 @@
 			children = (
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F31E48C2642A7D6005E5631 /* MaterialIcons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +265,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				3F31E48B2642A7D6005E5631 /* MaterialIcons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

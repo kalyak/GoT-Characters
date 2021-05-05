@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {getCharacters} from '../redux/actions';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
 // import Characters from '../api/Characters';
 
 const CharList = ({navigation}) => {
@@ -29,21 +31,21 @@ const CharList = ({navigation}) => {
     return (
       <TouchableOpacity
         onPress={() => {
-          // setCount(count + 1);
           navigation.navigate('Character Details', {
             character: item,
             imgURL,
           });
         }}>
         <View
-        // style={{height: 100, width: '100%', backgroundColor: 'rgba(1,0,0,0.5'}}
+          style={styles.row}
+          // style={{height: 100, width: '100%', backgroundColor: 'rgba(1,0,0,0.5'}}
         >
-          <Text>
-            {index}:{' '}
+          <Image style={styles.thumbnail} source={{uri: `${imgURL}/300/200`}} />
+          <Text style={styles.text}>
+            {index + 1}:{' '}
             {item.name ? item.name + ' AKA ' + item.aliases : item.aliases}
           </Text>
-          <Image style={styles.thumbnail} source={{uri: `${imgURL}/300/200`}} />
-          {/* <Text>{`https://picsum.photos/id/${index}/50`}</Text> */}
+          <MaterialIcons color="black" name="chevron-right" size={32} />
         </View>
       </TouchableOpacity>
     );
@@ -56,33 +58,50 @@ const CharList = ({navigation}) => {
   const styles = StyleSheet.create({
     container: {
       padding: 20,
+      borderColor: 'red',
+      borderWidth: 5,
+    },
+    list: {
+      borderLeftWidth: 1,
+      borderRightWidth: 1,
+    },
+    row: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      borderTopWidth: 1,
+      borderBottomWidth: 1,
     },
     thumbnail: {
       width: 50,
       height: 50,
+      marginRight: 10,
     },
     separator: {
       height: 10,
       width: '100%',
-      backgroundColor: 'rgba(230,230,230,1)',
+      // backgroundColor: 'rgba(230,230,230,1)',
+    },
+    text: {
+      fontWeight: 'bold',
     },
   });
 
   // const count = []
   return (
     <View style={styles.container}>
-      {/* {characters.length === 0 ? (
-        'Loading'
-      ) : ( */}
-      <FlatList
-        data={characters}
-        renderItem={renderItem}
-        keyExtractor={character => character.url}
-        ItemSeparatorComponent={ItemSeparator}
-      />
-      {/* )} */}
+      {characters.length === 0 ? (
+        <Text>Loading</Text>
+      ) : (
+        <FlatList
+          data={characters}
+          renderItem={renderItem}
+          keyExtractor={character => character.url}
+          ItemSeparatorComponent={ItemSeparator}
+          style={styles.list}
+        />
+      )}
       {/* <Text>Count: {count}</Text> */}
-      <Text>Characters: {characters.length}</Text>
     </View>
   );
 };

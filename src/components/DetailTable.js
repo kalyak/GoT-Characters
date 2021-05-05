@@ -5,7 +5,10 @@ import {DataTable} from 'react-native-paper';
 const DetailTable = ({character}) => {
   const styles = StyleSheet.create({
     container: {
-      padding: 20,
+      // padding: 20,
+      flex: 1,
+      borderColor: 'blue',
+      borderWidth: 5,
     },
     key: {
       textTransform: 'capitalize',
