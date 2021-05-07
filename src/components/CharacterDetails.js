@@ -14,8 +14,8 @@ const CharDetails = ({navigation, route}) => {
       justifyContent: 'center',
       // position: 'relative',
       flex: 1,
-      borderColor: 'red',
-      borderWidth: 5,
+      // borderColor: 'red',
+      // borderWidth: 5,
     },
     image: {
       alignSelf: 'center',

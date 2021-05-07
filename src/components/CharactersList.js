@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {
+  ActivityIndicator,
   FlatList,
   Image,
   StyleSheet,
@@ -41,11 +42,16 @@ const CharList = ({navigation}) => {
           // style={{height: 100, width: '100%', backgroundColor: 'rgba(1,0,0,0.5'}}
         >
           <Image style={styles.thumbnail} source={{uri: `${imgURL}/300/200`}} />
+          <Text style={styles.text}>{index + 1}: </Text>
           <Text style={styles.text}>
-            {index + 1}:{' '}
             {item.name ? item.name + ' AKA ' + item.aliases : item.aliases}
           </Text>
-          <MaterialIcons color="black" name="chevron-right" size={32} />
+          <MaterialIcons
+            // style={styles.arrow}
+            color="black"
+            name="chevron-right"
+            size={32}
+          />
         </View>
       </TouchableOpacity>
     );
@@ -58,19 +64,23 @@ const CharList = ({navigation}) => {
   const styles = StyleSheet.create({
     container: {
       padding: 20,
-      borderColor: 'red',
-      borderWidth: 5,
+      // borderColor: 'red',
+      // borderWidth: 5,
+      flex: 1,
     },
     list: {
-      borderLeftWidth: 1,
-      borderRightWidth: 1,
+      // borderLeftWidth: 1,
+      // borderRightWidth: 1,
     },
     row: {
       flexDirection: 'row',
       flexWrap: 'wrap',
       alignItems: 'center',
-      borderTopWidth: 1,
-      borderBottomWidth: 1,
+      justifyContent: 'space-between',
+      // alignContent: 'space-between',
+      // borderTopWidth: 1,
+      // borderBottomWidth: 1,
+      borderWidth: 1,
     },
     thumbnail: {
       width: 50,
@@ -80,10 +90,20 @@ const CharList = ({navigation}) => {
     separator: {
       height: 10,
       width: '100%',
-      // backgroundColor: 'rgba(230,230,230,1)',
+      backgroundColor: 'rgba(230,230,230,1)',
+      // borderLeftWidth: 1,
+      // borderRightWidth: 1,
     },
     text: {
       fontWeight: 'bold',
+      // borderWidth: 1,
+    },
+    // arrow: {
+    //   alignSelf: 'stretch',
+    // },
+    loading: {
+      flex: 1,
+      justifyContent: 'center',
     },
   });
 
@@ -91,7 +111,9 @@ const CharList = ({navigation}) => {
   return (
     <View style={styles.container}>
       {characters.length === 0 ? (
-        <Text>Loading</Text>
+        <View style={styles.loading}>
+          <ActivityIndicator size="large" hidesWhenStopped={true} />
+        </View>
       ) : (
         <FlatList
           data={characters}
