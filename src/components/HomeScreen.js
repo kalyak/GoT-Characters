@@ -5,7 +5,6 @@ const HomeScreen = ({navigation}) => {
   return (
     <Button
       title="Go to Game of Thrones List"
-      //   onPress={() => navigation.navigate('Profile', {name: 'Jane'})}
       onPress={() => navigation.navigate('Character List')}
     />
   );

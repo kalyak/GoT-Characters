@@ -17,11 +17,26 @@ const App = () => {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={{title: 'Welcome', animationTypeForReplace: 'pop'}}
+            options={{
+              title: 'Welcome',
+              animationTypeForReplace: 'pop',
+              headerTitleAlign: 'center',
+            }}
           />
-          {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
-          <Stack.Screen name="Character List" component={CharList} />
-          <Stack.Screen name="Character Details" component={CharDetails} />
+          <Stack.Screen
+            name="Character List"
+            component={CharList}
+            options={{
+              headerTitleAlign: 'center',
+            }}
+          />
+          <Stack.Screen
+            name="Character Details"
+            component={CharDetails}
+            options={{
+              headerTitleAlign: 'center',
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

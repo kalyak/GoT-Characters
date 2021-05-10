@@ -37,13 +37,11 @@ const CharList = ({navigation}) => {
             imgURL,
           });
         }}>
-        <View
-          style={styles.row}
-          // style={{height: 100, width: '100%', backgroundColor: 'rgba(1,0,0,0.5'}}
-        >
-          <Image style={styles.thumbnail} source={{uri: `${imgURL}/300/200`}} />
-          <Text style={styles.text}>{index + 1}: </Text>
+        <View style={styles.row}>
+          <Image style={styles.thumbnail} source={{uri: `${imgURL}/50/50`}} />
+          {/* <Text style={styles.text}></Text> */}
           <Text style={styles.text}>
+            {index + 1}:{' '}
             {item.name ? item.name + ' AKA ' + item.aliases : item.aliases}
           </Text>
           <MaterialIcons
@@ -67,6 +65,7 @@ const CharList = ({navigation}) => {
       // borderColor: 'red',
       // borderWidth: 5,
       flex: 1,
+      // alignItems: 'flex-start',
     },
     list: {
       // borderLeftWidth: 1,
@@ -76,13 +75,15 @@ const CharList = ({navigation}) => {
       flexDirection: 'row',
       flexWrap: 'wrap',
       alignItems: 'center',
-      justifyContent: 'space-between',
+      // justifyContent: 'space-between',
       // alignContent: 'space-between',
       // borderTopWidth: 1,
       // borderBottomWidth: 1,
       borderWidth: 1,
     },
     thumbnail: {
+      flex: 1,
+      resizeMode: 'contain',
       width: 50,
       height: 50,
       marginRight: 10,
@@ -96,11 +97,15 @@ const CharList = ({navigation}) => {
     },
     text: {
       fontWeight: 'bold',
+      flex: 2,
+      // textAlign: 'left',
       // borderWidth: 1,
     },
-    // arrow: {
-    //   alignSelf: 'stretch',
-    // },
+    arrow: {
+      flex: 1,
+
+      // alignSelf: 'stretch',
+    },
     loading: {
       flex: 1,
       justifyContent: 'center',
@@ -112,7 +117,11 @@ const CharList = ({navigation}) => {
     <View style={styles.container}>
       {characters.length === 0 ? (
         <View style={styles.loading}>
-          <ActivityIndicator size="large" hidesWhenStopped={true} />
+          <ActivityIndicator
+            size="large"
+            color="black"
+            hidesWhenStopped={true}
+          />
         </View>
       ) : (
         <FlatList
