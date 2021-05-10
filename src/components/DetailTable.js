@@ -7,8 +7,6 @@ const DetailTable = ({character}) => {
     container: {
       padding: 5,
       flex: 1,
-      // borderColor: 'blue',
-      // borderWidth: 5,
     },
     key: {
       textTransform: 'capitalize',

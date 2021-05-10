@@ -8,14 +8,9 @@ const CharDetails = ({navigation, route}) => {
 
   const styles = StyleSheet.create({
     container: {
-      // paddingHorizontal: 5,
-      // paddingTop: 110,
       paddingBottom: 10,
       justifyContent: 'center',
-      // position: 'relative',
       flex: 1,
-      // borderColor: 'red',
-      // borderWidth: 5,
     },
     image: {
       alignSelf: 'center',
